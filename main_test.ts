@@ -1,9 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.208.0/assert/mod.ts";
-import { add, fibs } from "./main.ts";
-
-Deno.test(function addTest() {
-  assertEquals(add(2, 3), 5);
-});
+import { fibs } from "./main.ts";
 
 Deno.test(function fibsTest() {
   assertEquals(fibs(1), [0]);
