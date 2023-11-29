@@ -40,3 +40,31 @@ export function fibsRec(n: number): number[] {
     }
   }
 }
+
+export function mergeSort(arr: number[]): number[] {
+  switch (arr.length) {
+    case 0:
+      return arr;
+    case 1:
+      return arr;
+    default: {
+      const half = arr.length / 2;
+      return mergeArr(
+        mergeSort(arr.slice(0, half)),
+        mergeSort(arr.slice(half))
+      );
+    }
+  }
+
+  function mergeArr(arr1: number[], arr2: number[]): number[] {
+    const merged: number[] = [];
+
+    while (arr1.length > 0 && arr2.length > 0) {
+      merged.push(
+        arr1[0] < arr2[0] ? (arr1.shift() as number) : (arr2.shift() as number)
+      );
+    }
+
+    return merged.concat(arr1, arr2);
+  }
+}
