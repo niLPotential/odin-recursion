@@ -15,3 +15,28 @@ export function fibs(n: number): number[] {
   }
   return fibsArr;
 }
+
+export function fibsRec(n: number): number[] {
+  const fibsRecArr: number[] = [];
+
+  for (let i = 0; i < n; i++) {
+    fibsRecArr.push(nthFibsNumber(i + 1));
+  }
+
+  return fibsRecArr;
+
+  function nthFibsNumber(i: number): number {
+    switch (i) {
+      case 1:
+        return 0;
+      case 2:
+        return 1;
+      default:
+        if (fibsRecArr.length < i) {
+          return nthFibsNumber(i - 1) + nthFibsNumber(i - 2);
+        } else {
+          return fibsRecArr[i - 1];
+        }
+    }
+  }
+}
