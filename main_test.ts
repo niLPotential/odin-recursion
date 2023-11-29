@@ -6,5 +6,7 @@ Deno.test(function addTest() {
 });
 
 Deno.test(function fibsTest() {
+  assertEquals(fibs(1), [0]);
+  assertEquals(fibs(2), [0, 1]);
   assertEquals(fibs(8), [0, 1, 1, 2, 3, 5, 8, 13]);
 });
